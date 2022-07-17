@@ -1,0 +1,136 @@
+%\documentclass[handout]{beamer}
+\documentclass[presentation]{beamer}
+\setbeameroption{show notes}
+
+% Options for the UBD theme
+\usetheme[
+%	progressdots,  % provides progress dots by sections at the top of each slide
+	transitions,  % provides transition slides between sections
+	banner,  % provides the UBD banner (ubd_banner.png) on the title slide
+	logo  % provides the UBD logo (ubd.jpg) in the footers
+]{ubd}
+
+% information for the title page
+\author{Dr Huda Ramli}
+\title{Software for Mathematicians}
+\subtitle{SM-2302}
+\institute{Mathematical Sciences, Faculty of Science, UBD\\
+\url{huda.ramli@ubd.edu.bn}}
+\date{Semester I, 2022/23}
+
+% Packages 
+\usepackage{array}
+\usepackage{multicol}
+\usepackage[framed,numbered,autolinebreaks]{mcode}
+\usefonttheme{professionalfonts}
+%\usefonttheme[onlymath]{serif}
+\usepackage{kpfonts}
+\usepackage{lipsum}
+\usepackage{csquotes}
+\usepackage{polyglossia}  % to use arabic
+\setdefaultlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
+
+% Fix for footnotes not showing when arabic script used
+% https://tex.stackexchange.com/questions/228075/beamer-in-arabic-language-doesnt-accept-footnotes
+\makeatletter
+\let\@footnotetext=\beamer@framefootnotetext
+\makeatother
+
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd,graphicx}
+\usepackage{xcolor,comment,graphics}
+\usepackage{accents,mathtools,textcomp}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{centernot}
+\usetikzlibrary{arrows,shapes,shapes.geometric}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\setbeamertemplate{theorem}[ams style]
+\setbeamertemplate{theorems}[numbered]
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{
+	cmhplot/.style={color=blue,mark=none,line width=1pt,<->},
+	soldot/.style={color=blue,only marks,mark=*},
+	holdot/.style={color=blue,fill=white,only marks,mark=*}, }
+\usepackage{etoolbox}
+
+\usepackage[skins,theorems]{tcolorbox}
+\tcbset{highlight math 
+	style={enhanced,colframe=red,colback=white,arc=0pt,boxrule=1pt}}
+\newtcolorbox{mymathbox}[1][]{enhanced,colback=white,arc=0pt, #1}
+\setbeamertemplate{frametitle continuation}[from second][~]
+\newtcolorbox{mybox}[1]{colback=gray!5!white,colframe=blue!60!,
+	fonttitle=\bfseries,title=#1}
+%- Definitions: \tcbhighmath[boxrule=2pt,arc=1pt,colback=queenpink,colframe=myrtlegreen,drop fuzzy shadow=navyblue]{}
+%- Theorems: \tcbhighmath[fuzzy halo=1mm with navyblue,arc=2pt,boxrule=0pt,frame hidden]{}
+%- Subtheorem: \tcbhighmath[drop fuzzy shadow,colframe=charcoal]{}
+
+
+%%% COLUMNS
+%\begin{columns}
+%\begin{column}[T]{0.5\textwidth}
+%...
+%\end{column}
+%\begin{column}[T]{0.5\textwidth}
+%...
+%\end{column}
+%\end{columns}
+
+%%% MINIPAGES
+%\begin{minipage}{.5\textwidth}
+%\centering
+%\includegraphics[height=0.55\textheight]{figA.pdf}
+%
+%caption of figA
+%\scriptsize\textcolor{red}{[Wu et al., Nature (2009)]}
+%\end{minipage}%
+%\begin{minipage}{.5\textwidth}
+%\centering
+%\includegraphics[height=0.55\textheight]{figB.pdf}
+%
+%caption of figB
+%\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
+%\end{minipage}
+
+\definecolor{mtlbgreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\renewcommand{\insertnavigation}[1]{}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\def\d{\mbox{d}} 
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}} 
+\newcommand{\mc}[1]{\mathcal{#1}} 
+\newcommand{\mbb}[1]{\mathbb{#1}} 
+\newcommand{\txt}[1]{\texttt{#1}} 
+\newcommand{\pdiff}[3]{ \if 1#1 
+	\frac{\partial #2}{\partial #3} \else \frac{\partial^{#1} #2}{\partial 
+		#3^{#1}}\fi}
+\newcommand{\ppdiff}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\sdiff}[3]{ \if 1#1 \frac{d #2}{d #3} \else \frac{d^{#1} #2}{d 
+		#3^{#1}}\fi}
+\newcommand{\e}{\mbox{e}}
+\newcommand{\rvec}[1]{\overrightarrow{#1}}
+\newcommand{\uvec}[3]{#1\,\mb{i}~ #2\,\mb{j}~ #3\,\mb{k}}
+
+\definecolor{comgreen}{rgb}{.133,.545,.133}
+
+ 
+\begin{document}
+\everymath{\displaystyle}
+	
+\begin{frame}[plain,noframenumbering]
+	\titlepage
+\end{frame}
+\include{Intro}
+%\include{Matlab1}
+%\include{Matlab2}
+%\include{Matlab3}
+%\include{Matlab4}
+\end{document}
+
