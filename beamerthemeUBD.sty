@@ -1,0 +1,294 @@
+
+\ProvidesPackage{beamerthemeubd}[2020/12/09]
+
+\mode<presentation>
+
+% Load packages
+\usepackage{tikz}
+\usepackage{changepage}
+\usepackage{kvoptions}
+\usepackage{etoolbox}
+
+% Process options
+\DeclareBoolOption{banner}
+\DeclareBoolOption{logo}
+\DeclareBoolOption{progressdots}
+\DeclareBoolOption{transitions}
+\ProcessKeyvalOptions*
+
+\newif\iftranslides
+\translidestrue
+% \ifbeamerthemeubd@transitions%
+% 	\translidestrue
+% \else
+% 	\translidesfalse
+% \fi
+
+% COLOUR THEME -----------------------------------------------------------
+
+\definecolor{navyblue}{RGB}{0, 47, 92}  % #002f5c 
+\definecolor{charcoal}{RGB}{54,69,79}
+\definecolor{gray}{RGB}{128, 128, 128}
+\definecolor{solidpink}{HTML}{8E3B46}
+\definecolor{queenpink}{HTML}{EAD1D6}
+\definecolor{orangecrayola}{HTML}{FFD166}
+\definecolor{paradisepink}{HTML}{EF476F}
+\definecolor{myrtlegreen}{HTML}{346B61}
+\definecolor{lightcyan}{HTML}{CCE8E3}
+\definecolor{flame}{HTML}{fe5d26}
+
+% Main colours
+\setbeamercolor{structure}{fg=navyblue,bg=white}
+\setbeamercolor{frametitle}{fg=navyblue}
+\setbeamercolor{framesubtitle}{fg=navyblue}
+\setbeamercolor{alerted text}{fg=solidpink}
+
+% Block colours
+\setbeamercolor{block title}{fg=gray!18,bg=charcoal}
+\setbeamercolor{block body}{parent=normal text,bg=gray!18,fg=charcoal}
+
+\setbeamercolor{block title example}{fg=lightcyan!50,bg=myrtlegreen}
+\setbeamercolor{block body example}{parent=normal text,bg=lightcyan!50,fg=myrtlegreen}
+
+\setbeamercolor{block title alerted}{fg=queenpink!60,bg=solidpink}
+\setbeamercolor{block body alerted}{parent=normal text,bg=queenpink!60, fg=solidpink}
+
+\setbeamercolor{title}{fg=navyblue}
+\setbeamercolor{subtitle}{fg=navyblue}
+
+\setbeamercolor{bibliography entry author}{fg=charcoal}
+\setbeamercolor{bibliography entry title}{fg=charcoal}
+\setbeamercolor{bibliography entry location}{fg=gray}
+\setbeamercolor{bibliography entry note}{fg=gray}
+
+% INNER THEME -----------------------------------------------------------
+
+\defbeamertemplate{itemize item}{circ}%
+{\small\raise.2ex\hbox{$\bullet$}}
+\defbeamertemplate{itemize subitem}{circ}%
+{\small\raise.1ex\hbox{$\circ$}}
+\defbeamertemplate{itemize subsubitem}{circ}%
+{\scriptsize\raise.1ex\hbox{$\bullet$}}
+\setbeamertemplate{items}[circ]
+\setbeamertemplate{itemize item}[circ]
+\setbeamertemplate{itemize subitem}[circ]
+\setbeamertemplate{itemize subsubitem}[circ]
+
+% OUTER THEME -----------------------------------------------------------
+
+\setbeamertemplate{navigation symbols}{} 	% turn off pdf navigation symbols
+
+% Continuation after frame breaks
+\setbeamertemplate{frametitle continuation}{}
+% \newcounter{cont}
+% \makeatletter
+% \setbeamertemplate{frametitle continuation}{%
+% 	\setcounter{cont}{\beamer@endpageofframe}%
+% 	\addtocounter{cont}{1}%
+% 	\addtocounter{cont}{-\beamer@startpageofframe}%
+%     (\insertcontinuationcount/\arabic{cont})%
+% }% end frame title continuation
+% \makeatother
+
+% Text margins
+\setbeamersize{text margin left=0.33cm}
+\setbeamersize{text margin right=0.33cm}
+
+% Customisation for the title page
+\setbeamertemplate{title page}
+{%
+	\leavevmode%
+	\begin{adjustwidth}{0.6cm}{0cm}  % adjusts the margins
+		
+		\ifbeamerthemeubd@banner%
+			\vspace*{-5ex}
+			\mbox{}\hfill\includegraphics[height=2cm]{ubd_banner.png}\par
+			\par\vfill	
+		\else%
+		\fi%
+
+		\usebeamerfont{title}{\usebeamercolor[fg]{title}\inserttitle}\par
+		\usebeamerfont{subtitle}{\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
+		\bigskip
+		\usebeamerfont{author}\insertauthor\par
+		\usebeamerfont{institute}\insertinstitute\par
+		\medskip
+		\usebeamerfont{date}\insertdate
+	\end{adjustwidth}
+}
+
+% Customisation for the footers
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=0.98\paperwidth,ht=4.25ex,dp=2ex,left]{pagenumber}%
+			\hspace*{1ex} \insertframenumber{} / \inserttotalframenumber
+		\end{beamercolorbox}
+		\ifbeamerthemeubd@logo%
+			\llap{\includegraphics[height=0.3cm]{ubd.jpg}}
+		\else%
+		\fi%
+	}%
+}
+
+% Progress dots (based on smoothbars)
+\ifbeamerthemeubd@progressdots%
+	\beamer@compresstrue
+	\AtBeginDocument{
+		{
+			\usebeamerfont*{headline}
+			\colorlet{global.bg}{bg}
+			\usebeamercolor{subsection in head/foot}
+			\usebeamercolor{section in head/foot}
+			\usebeamercolor{frametitle}
+
+			\pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+				color(0ex)=(global.bg);%
+				color(1ex)=(section in head/foot.bg);%
+				color(7ex)=(section in head/foot.bg)%
+			}
+			\pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+				color(0ex)=(frametitle.bg);%
+				color(1ex)=(frametitle.bg);%
+				color(2ex)=(section in head/foot.bg)
+			}
+		  	\pgfdeclareverticalshading{beamer@belowframetitle}{\the\paperwidth}{%
+		    	color(0ex)=(global.bg);%
+		    	color(1ex)=(frametitle.bg)
+		  	}
+		}
+	}
+
+	% Headline for progress dots
+	\defbeamertemplate*{headline}{smoothbars theme}
+	{%
+		\pgfuseshading{beamer@barshade}%
+		\vskip-7ex%
+		\begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+			\insertnavigation{\paperwidth}
+		\end{beamercolorbox}%
+	}%
+
+	\defbeamertemplate*{frametitle}{smoothbars theme}
+	{%
+		\nointerlineskip%
+		\usebeamerfont{headline}%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=1.5ex,dp=0ex,vmode]{empty}
+			\pgfuseshading{beamer@aboveframetitle}%
+		\end{beamercolorbox}%
+		\vskip-.5ex%
+		\nointerlineskip%
+		\begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+			\usebeamerfont*{frametitle}\insertframetitle%
+			\ifx\insertframesubtitle\@empty%
+				\strut\par%
+			\else
+				\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+			\fi%%
+			\usebeamerfont{headline}%
+			\vskip.5ex  
+		\end{beamercolorbox}%
+		\nointerlineskip
+		\begin{beamercolorbox}[wd=\paperwidth,ht=.5ex,dp=0ex]{empty}
+			\pgfuseshading{beamer@belowframetitle}%
+		\end{beamercolorbox}%
+	}				
+\fi
+
+% Bibliography
+\setbeamertemplate{bibliography item}{\makebox[0.47cm]{$\circ$}}
+
+% Mathematics
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{theorem}[ams style]
+\addtobeamertemplate{theorem begin}{\normalfont}{}
+\newenvironment{example*}
+  {\addtocounter{theorem}{-1}\example}
+  {\endexample}  % https://tex.stackexchange.com/questions/122880/continuing-example-counters-in-beamer
+\newenvironment{examplecont}
+  {\addtocounter{theorem}{-1}\example}
+  {\endexample}  % https://tex.stackexchange.com/questions/122880/continuing-example-counters-in-beamer
+\newtheorem{proposition}[theorem]{Proposition}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% FONT THEME -----------------------------------------------------------
+
+% Maths fonts
+\usepackage{cmbright}
+\usefonttheme{professionalfonts}
+
+% Use default font themes
+\usefonttheme{default}
+
+\setbeamerfont{title}{series=\bfseries, size=\LARGE}  %family=\rmfamily, 
+\setbeamerfont{subtitle}{series=\mdseries, size=\large}
+
+\setbeamerfont{frametitle}{series=\bfseries, size=\Large}
+\setbeamerfont{framesubtitle}{series=\mdseries, size=\large}
+
+% Remove transition slides from navigation bullets
+%https://tex.stackexchange.com/questions/37127/how-to-remove-some-pages-from-the-navigation-bullets-in-beamer
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+% Transition slides before each section (except first section)
+\newcommand{\transition}{
+	\miniframesoff
+	\begin{frame}[plain]
+    	\tableofcontents[currentsection,hideothersubsections]
+	\end{frame}
+	\addtocounter{framenumber}{-1} 
+	\miniframeson
+}
+
+\iftranslides
+	\AtBeginSection[]{%
+		\ifnum \value{section}>1
+			\transition
+		\else
+		\fi
+	}
+\fi
+
+\newcommand{\transitionsubsec}{
+	\miniframesoff
+	\begin{frame}[plain]
+    	\tableofcontents[currentsection]
+	\end{frame}
+	\miniframeson
+}
+
+% Backup slides counter
+\newcommand{\backupbegin}{
+	\newcounter{framenumbervorappendix}
+	\setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+	\addtocounter{framenumbervorappendix}{-\value{framenumber}}
+	\addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
+% Custom footnote command
+% https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+\mode<all>
+
+\newenvironment{readinglist}[1]{%
+\setbeamercolor{block title}{fg=white,bg=flame!60!gray}%
+\setbeamercolor{block body}{parent=normal text,bg=flame!10,fg=flame!60!gray}%
+\setbeamercolor{itemize item}{fg=flame!60!gray}%
+\begin{block}{#1}}{\end{block}}

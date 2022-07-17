@@ -1,0 +1,560 @@
+\documentclass[,aspectratio=169]{beamer}
+
+% Load theme ---------------------------------------------------------------------------------
+
+\usetheme[transitions,banner,logo]{ubd}
+
+% Information for the title page -------------------------------------------------------------
+\author{Drs. Haziq Jamil \& Huda Ramli}
+
+\title{SM-2302 Software for Mathematicians}
+
+\title{SM-2302 Software for Mathematicians}
+
+\subtitle{Chapter 0: Introduction \& Getting Started}
+
+\institute{Mathematical Sciences, Faculty of Science, UBD\\
+\url{https://sm2302.github.io}}
+
+\date{Semester I 2022/23}
+
+% Font fix -----------------------------------------------------------------------------------
+% \usepackage{ifxetex,ifluatex}
+% \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+%   \usepackage[T1]{fontenc}
+%   \usepackage[utf8]{inputenc}
+%   \usepackage{textcomp} % provide euro and other symbols
+% \else % if luatex or xetex
+%   \usepackage{unicode-math}
+%   \defaultfontfeatures{Scale=MatchLowercase}
+%   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+% \fi
+
+\usepackage{soul}
+\makeatletter
+\let\HL\hl
+\renewcommand\hl{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \HL}
+\makeatother
+% https://tex.stackexchange.com/questions/460731/highlight-color-a-part-of-text-in-block-in-beamer
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
+% https://tex.stackexchange.com/questions/352956/how-to-highlight-text-with-an-arbitrary-color
+
+% knitr stuff --------------------------------------------------------------------------------
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+% Reduce spacing between code and output knitr
+\AtBeginEnvironment{verbatim}{\vspace{-2em}}
+
+
+
+% Packages -----------------------------------------------------------------------------------
+% \setlength{\parskip}{1em}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,fit,arrows.meta}
+\usepackage{xltabular}
+\usepackage{longtable,booktabs,multirow,colortbl}
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{lipsum}
+\usepackage{csquotes}
+
+% To use arabic -----------------------------------------------------------------------------
+% WARNING: Using arabic script causes some issues with footnotes.
+% Packages are not loaded by default
+
+\usepackage{polyglossia}  
+% \setdefaultlanguage{english}
+% \setotherlanguage{arabic} % to use arabic
+% \newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
+
+% % Fix for footnotes not showing when arabic script used
+% % https://tex.stackexchange.com/questions/228075/beamer-in-arabic-language-doesnt-accept-footnotes
+% \makeatletter
+% \let\@footnotetext=\beamer@framefootnotetext
+% \makeatother
+
+% % Fix for footnotes not showing when using \footnote<.->
+% \let\oldfootnote\footnote
+% \renewcommand{\footnote}{\only<+->\oldfootnote}
+% % https://stackoverflow.com/questions/62345074/show-footnote-only-after-a-pause-in-beamer-with-r-markdown
+
+% Fonts -----------------------------------------------------------------------------------
+\usepackage{cmbright}
+\usefonttheme{default}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% Bibliography
+
+% Fix URL, DOI, ISBN, etc. font in biblatex
+% https://tex.stackexchange.com/questions/416093/change-font-of-the-word-url-before-the-actual-url-in-biblatex
+% \renewcommand*{\mkbibacro}[1]{#1}  
+
+\newcommand{\thankyou}{%
+	{
+		\begin{frame}[plain,noframenumbering]{End}
+			\centering
+			\Huge Thank you!
+		\end{frame}
+	}
+
+}
+
+% Maths -----------------------------------------------
+\usepackage{empheq}
+\newcommand*\mybox[1]{%
+\colorbox{navyblue!35}{#1}}
+
+\usepackage[skins,theorems]{tcolorbox}
+\tcbset{highlight math style={enhanced,
+  colframe=navyblue,colback=white,arc=2pt,boxrule=1pt}}
+
+\usepackage{amssymb}
+\usepackage{dsfont}  % for indicator variables \mathsds{1}
+\usepackage{bm}  % for better bold script
+\usepackage[makeroom]{cancel}
+\usepackage{centernot}
+\renewcommand{\CancelColor}{\color{gray}}
+\newcommand{\bzero}{{\bm 0}}
+\newcommand{\bone}{{\bm 1}}
+\newcommand{\ba}{{\bm a}}
+\newcommand{\bb}{{\bm b}}
+\newcommand{\bc}{{\bm c}}
+\newcommand{\bd}{{\bm d}}
+\newcommand{\be}{{\bm e}}
+\newcommand{\bff}{{\bm f}}
+\newcommand{\bg}{{\bm g}}
+\newcommand{\bh}{{\bm h}}
+\newcommand{\bi}{{\bm i}}
+\newcommand{\bj}{{\bm j}}
+\newcommand{\bk}{{\bm k}}
+\newcommand{\bl}{{\bm l}}
+\newcommand{\bmm}{{\bm m}}
+\newcommand{\bn}{{\bm n}}
+\newcommand{\bo}{{\bm o}}
+\newcommand{\bp}{{\bm p}}
+\newcommand{\bq}{{\bm q}}
+\newcommand{\br}{{\bm r}}
+\newcommand{\bs}{{\bm s}}
+\newcommand{\bt}{{\bm t}}
+\newcommand{\bu}{{\bm u}}
+\newcommand{\bv}{{\bm v}}
+\newcommand{\bw}{{\bm w}}
+\newcommand{\bx}{{\bm x}}
+\newcommand{\by}{{\bm y}}
+\newcommand{\bz}{{\bm z}}
+\newcommand{\bA}{{\bm A}}
+\newcommand{\bB}{{\bm B}}
+\newcommand{\bC}{{\bm C}}
+\newcommand{\bD}{{\bm D}}
+\newcommand{\bE}{{\bm E}}
+\newcommand{\bF}{{\bm F}}
+\newcommand{\bG}{{\bm G}}
+\newcommand{\bH}{{\bm H}}
+\newcommand{\bI}{{\bm I}}
+\newcommand{\bJ}{{\bm J}}
+\newcommand{\bK}{{\bm K}}
+\newcommand{\bL}{{\bm L}}
+\newcommand{\bM}{{\bm M}}
+\newcommand{\bN}{{\bm N}}
+\newcommand{\bO}{{\bm O}}
+\newcommand{\bP}{{\bm P}}
+\newcommand{\bQ}{{\bm Q}}
+\newcommand{\bR}{{\bm R}}
+\newcommand{\bS}{{\bm S}}
+\newcommand{\bT}{{\bm T}}
+\newcommand{\bU}{{\bm U}}
+\newcommand{\bV}{{\bm V}}
+\newcommand{\bW}{{\bm W}}
+\newcommand{\bX}{{\bm X}}
+\newcommand{\bY}{{\bm Y}}
+\newcommand{\bZ}{{\bm Z}}
+
+% Greek bold letters
+\newcommand{\balpha}{{\bm\alpha}}
+\newcommand{\bbeta}{{\bm\beta}}
+\newcommand{\bgamma}{{\bm\gamma}}
+\newcommand{\bdelta}{{\bm\delta}}
+\newcommand{\bepsilon}{{\bm\epsilon}}
+\newcommand{\bvarepsilon}{{\bm\varepsilon}}
+\newcommand{\bzeta}{{\bm\zeta}}
+\newcommand{\bfeta}{{\bm\eta}}
+\newcommand{\boldeta}{{\bm\eta}}
+\newcommand{\btheta}{{\bm\theta}}
+\newcommand{\bvartheta}{{\bm\vartheta}}
+\newcommand{\biota}{{\bm\iota}}
+\newcommand{\bkappa}{{\bm\kappa}}
+\newcommand{\blambda}{{\bm\lambda}}
+\newcommand{\bmu}{{\bm\mu}}
+\newcommand{\bnu}{{\bm\nu}}
+\newcommand{\bxi}{{\bm\xi}}
+\newcommand{\bpi}{{\bm\pi}}
+\newcommand{\bvarpi}{{\bm\varpi}}
+\newcommand{\brho}{{\bm\rho}}
+\newcommand{\bvarrho}{{\bm\varrho}}
+\newcommand{\bsigma}{{\bm\sigma}}
+\newcommand{\bvarsigma}{{\bm\varsigma}}
+\newcommand{\btau}{{\bm\tau}}
+\newcommand{\bupsilon}{{\bm\upsilon}}
+\newcommand{\bphi}{{\bm\phi}}
+\newcommand{\bvarphi}{{\bm\varphi}}
+\newcommand{\bchi}{{\bm\chi}}
+\newcommand{\bpsi}{{\bm\psi}}
+\newcommand{\bomega}{{\bm\omega}}
+
+\newcommand{\bGamma}{{\bm\Gamma}}
+\newcommand{\bDelta}{{\bm\Delta}}
+\newcommand{\bTheta}{{\bm\Theta}}
+\newcommand{\bLambda}{{\bm\Lambda}}
+\newcommand{\bXi}{{\bm\Xi}}
+\newcommand{\bPi}{{\bm\Pi}}
+\newcommand{\bSigma}{{\bm\Sigma}}
+\newcommand{\bUpsilon}{{\bm\Upsilon}}
+\newcommand{\bPhi}{{\bm\Phi}}
+\newcommand{\bPsi}{{\bm\Psi}}
+\newcommand{\bOmega}{{\bm\Omega}}
+
+% Probability and Statistics
+\DeclareMathOperator{\Prob}{P}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\se}{se}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\Dir}{Dir}
+\DeclareMathOperator{\Wis}{Wis}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\expit}{expit}
+\DeclareMathOperator{\Mult}{Mult}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\Pois}{Poi}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\NBin}{NBin}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Betadist}{Beta}
+\DeclareMathOperator{\Hypergeom}{Hypergeom}
+\DeclareMathOperator{\Cauchy}{Cauchy}
+\DeclareMathOperator{\hCauchy}{half-Cauchy}
+\DeclareMathOperator{\LKJ}{LKJ}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\KL}{KL}
+\DeclareMathOperator{\ind}{\mathds{1}}
+\newcommand{\iid}{\,\overset{\text{iid}}{\sim}\,}
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator{\Lik}{L}
+\DeclareMathOperator{\Leb}{Leb}
+
+
+% Blackboard bold
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbE}{\mathbb{E}}
+
+% Math calligraphic fonts
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cM}{{\mathcal M}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+\newcommand{\cW}{{\mathcal W}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cY}{{\mathcal Y}}
+\newcommand{\cZ}{{\mathcal Z}}
+
+
+% Overbrace and underbrace
+\newcommand{\myoverbrace}[3][gray!70]{{\color{#1}\overbrace{\color{black}#2}^{#3}}}
+\newcommand{\myunderbrace}[3][gray!70]{{\color{#1}\underbrace{\color{black}#2}_{#3}}}
+
+
+% Conveniences
+\newcommand{\const}{\text{const.}}
+\newcommand{\half}[1][1]{\frac{#1}{2}}  % \half for 1/2 or \half[n] for n/2, etc.
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Comments grey text
+\newcommand{\mycomment}[2][10pt]{\hspace{#1}\rlap{\color{gray}\text{#2}}}
+
+% Derivatives and integration
+\let\d\relax
+\DeclareMathOperator{\dd}{d}
+\newcommand{\dint}{\dd\hspace{0.5pt}\!}
+\newcommand{\d}{\text{d}}
+
+% https://tex.stackexchange.com/questions/19981/how-to-write-rudins-symbol-for-absolute-continuity-of-measures
+\DeclareFontFamily{U}{matha}{\hyphenchar\font45}
+\DeclareFontShape{U}{matha}{m}{n}{
+  <-6> matha5 <6-7> matha6 <7-8> matha7
+  <8-9> matha8 <9-10> matha9
+  <10-12> matha10 <12-> matha12
+  }{}
+% \DeclareFontShape{U}{matha}{m}{n}{
+%   <5> <6> <7> <8> <9> <10> gen * matha
+%   <10.95> matha10 <12> <14.4> <17.28>
+%   <20.74> <24.88> matha12
+%   }{}
+
+\DeclareSymbolFont{matha}{U}{matha}{m}{n}
+\DeclareMathSymbol{\Lt}{3}{matha}{"CE}
+
+\graphicspath{ {figure/} }
+
+
+\setbeamertemplate{itemize item}[circ]
+\setbeamertemplate{itemize subitem}[circ]
+\setbeamertemplate{itemize subsubitem}[circ]
+
+\newenvironment{onlyhandout}{\only<handout>{}{}}
+
+
+
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+	\titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.8]{Overview}
+	\tableofcontents
+\end{frame}
+
+\hypertarget{admin}{%
+\section{Admin}\label{admin}}
+
+\hypertarget{getting-started}{%
+\subsection{Getting started}\label{getting-started}}
+
+\begin{frame}[fragile]{Admin}
+\protect\hypertarget{admin-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Lecturer information
+\end{itemize}
+
+\vspace{-1.5em}
+
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dr. Haziq Jamil}
+\NormalTok{Assistant Professor in Statistics}
+\NormalTok{Room M1.09}
+\NormalTok{haziq.jamil@ubd.edu.bn}
+\end{Highlighting}
+\end{Shaded}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dr. Huda Ramli}
+\NormalTok{Lecturer in Applied Mathematics}
+\NormalTok{Room M1.04}
+\NormalTok{huda.ramli@ubd.edu.bn}
+\end{Highlighting}
+\end{Shaded}
+\end{column}
+\end{columns}
+
+\begin{itemize}
+\item
+  \textcolor{solidpink}{\textbf{IMPORTANT: Read the syllabus.}}
+\item
+  Class format
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Each week consists of a lecture and tutorial class
+  \item
+    Two \(\times\) 2-hour sessions are scheduled every week
+
+    \begin{itemize}
+    \tightlist
+    \item
+      TBC Tuesday 7.50am--9.40am (Week 2 onwards)
+      \textcolor{gray}{[Lecture]}
+    \item
+      Thursdays 2.10pm--4.00pm \textcolor{gray}{[Tutorial]}
+    \end{itemize}
+  \end{itemize}
+\item
+  Be aware of schedule and important deadlines.
+\item
+  Check Canvas regularly for announcements and course materials.
+\end{itemize}
+\end{frame}
+
+\hypertarget{module-contents}{%
+\subsection{Module contents}\label{module-contents}}
+
+\begin{frame}{Module description}
+\protect\hypertarget{module-description}{}
+Text here
+
+\vspace{1em}
+
+Topics covered
+
+\begin{enumerate}
+\tightlist
+\item
+\item
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Reading list}
+\protect\hypertarget{reading-list}{}
+\end{frame}
+
+\begin{frame}{Assessment}
+\protect\hypertarget{assessment}{}
+\emph{Formative assessment}
+
+\begin{itemize}
+\tightlist
+\item
+  Lab-based tutorials
+\end{itemize}
+
+\emph{Summative assessment}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{{[}20\%{]}} Quizzes
+\item
+  \textbf{{[}20\%{]}} Individual assignments
+\item
+  \textbf{{[}30\%{]}} Group assignments
+\item
+  \textbf{{[}30\%{]}} Final project
+\end{itemize}
+
+\vspace{1em}
+
+\textcolor{solidpink}{See the syllabus pdf file for further details.}
+\end{frame}
+
+\hypertarget{evolution-of-sm-2302}{%
+\subsection{Evolution of SM-2302}\label{evolution-of-sm-2302}}
+
+\begin{frame}{Evolution of SM-2302}
+Excel \& Maple to MATLAB and R
+\end{frame}
+
+\begin{frame}{Is this course for me?}
+\protect\hypertarget{is-this-course-for-me}{}
+\end{frame}
+
+\begin{frame}{Learning outcomes}
+\protect\hypertarget{learning-outcomes}{}
+\end{frame}
+
+
+
+
+\end{document}		
