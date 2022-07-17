@@ -11,7 +11,7 @@
 
 \title{SM-2302 Software for Mathematicians}
 
-\subtitle{Chapter 0: Introduction \& Getting Started}
+\subtitle{Introduction \& Getting Started}
 
 \institute{Mathematical Sciences, Faculty of Science, UBD\\
 \url{https://sm2302.github.io}}
@@ -459,27 +459,20 @@
 \end{column}
 \end{columns}
 
+\vspace{0.5em}
+
 \begin{itemize}
 \item
   \textcolor{solidpink}{\textbf{IMPORTANT: Read the syllabus.}}
 \item
-  Class format
+  Weekly contact hours
 
   \begin{itemize}
   \tightlist
   \item
-    Each week consists of a lecture and tutorial class
+    \underline{Lectures}: 2 hours in computer lab on Thursdays 7:50 AM
   \item
-    Two \(\times\) 2-hour sessions are scheduled every week
-
-    \begin{itemize}
-    \tightlist
-    \item
-      TBC Tuesday 7.50am--9.40am (Week 2 onwards)
-      \textcolor{gray}{[Lecture]}
-    \item
-      Thursdays 2.10pm--4.00pm \textcolor{gray}{[Tutorial]}
-    \end{itemize}
+    \underline{Tutorials}: 2 hours practice lab on Saturdays 2:10 PM
   \end{itemize}
 \item
   Be aware of schedule and important deadlines.
@@ -491,27 +484,46 @@
 \hypertarget{module-contents}{%
 \subsection{Module contents}\label{module-contents}}
 
-\begin{frame}{Module description}
+\begin{frame}[fragile]{Module description}
 \protect\hypertarget{module-description}{}
-Text here
+\begin{quote}
+Mathematical software is what bridges higher mathematics to real world
+applications. On completing this module, students should be able to use
+\texttt{MATLAB} and \texttt{R} to effectively implement mathematical
+solutions to real world problems. They should also be able to produce
+publication-quality mathematical documents using \LaTeX. This module
+provides the computing skills required for an applied mathematics final
+year project.
+\end{quote}
 
 \vspace{1em}
 
-Topics covered
+Contents
 
 \begin{enumerate}
 \tightlist
 \item
+  Learning \texttt{MATLAB} and \texttt{R} languages for mathematical
+  applications.
 \item
+  \texttt{MATLAB} specific outomes: Basic operations, programming,
+  numerical techniques and root finding.
+\item
+  \texttt{R} specific outcomes: Logic and types, data frames and
+  matrices, data wrangling, and visualisations.
+\item
+  Preparation of report-style documents using \LaTeX.
+\item
+  Version control and social coding using Git and GitHub.
 \end{enumerate}
-\end{frame}
-
-\begin{frame}{Reading list}
-\protect\hypertarget{reading-list}{}
 \end{frame}
 
 \begin{frame}{Assessment}
 \protect\hypertarget{assessment}{}
+Take note that this module is assessed wholly (100\%) by coursework.
+
+\vspace{1em}
+
 \emph{Formative assessment}
 
 \begin{itemize}
@@ -525,13 +537,14 @@ Topics covered
 \begin{itemize}
 \tightlist
 \item
-  \textbf{{[}20\%{]}} Quizzes
+  \textbf{{[}20\%{]}} 4 \(\times\) online quizzes
 \item
-  \textbf{{[}20\%{]}} Individual assignments
+  \textbf{{[}20\%{]}} 2 \(\times\) mini individual assignments
 \item
-  \textbf{{[}30\%{]}} Group assignments
+  \textbf{{[}30\%{]}} 2 \(\times\) mini group assignments
 \item
-  \textbf{{[}30\%{]}} Final project
+  \textbf{{[}30\%{]}} 1 \(\times\) project assignment with written
+  report
 \end{itemize}
 
 \vspace{1em}
@@ -539,19 +552,237 @@ Topics covered
 \textcolor{solidpink}{See the syllabus pdf file for further details.}
 \end{frame}
 
-\hypertarget{evolution-of-sm-2302}{%
-\subsection{Evolution of SM-2302}\label{evolution-of-sm-2302}}
+\hypertarget{purpose-of-mathematical-software}{%
+\subsection{Purpose of mathematical
+software}\label{purpose-of-mathematical-software}}
 
-\begin{frame}{Evolution of SM-2302}
-Excel \& Maple to MATLAB and R
+\begin{frame}{Purpose of mathematical software}
+\begin{quote}
+Software is essential for modelling, analysing and calculating numeric,
+symbolic, or geometric data.
+\end{quote}
+
+Generally speaking, mathematical software is very focused:
+
+\begin{enumerate}
+\item
+  \textbf{Software calculator}: Performs simple mathematical operations.
+\item
+  \textbf{Computer algebra systems}: Designed to solve classical algebra
+  equations and problems in human readable notation.
+\item
+  \textbf{Statistics}: Statistical analysis of data.
+\item
+  \textbf{Optimisation}: Selecting a best solution from a set of
+  alternatives.
+\item
+  \textbf{Numerical analysis}: Numerical approximations for the problems
+  of mathematical analysis.
+\item
+  etc.
+\end{enumerate}
+
+\begin{block}{Remark}
+\protect\hypertarget{remark}{}
+While mathematical software produces useful solutions, they very often
+do not explain \underline{why} the solutions are what they are.
+\end{block}
 \end{frame}
 
-\begin{frame}{Is this course for me?}
-\protect\hypertarget{is-this-course-for-me}{}
+\begin{frame}[fragile,t]{How many primes are there?}
+\protect\hypertarget{how-many-primes-are-there}{}
+\begin{theorem}[Euclid's Theorem]
+There are infinitely many primes.
+\end{theorem}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\begin{itemize}
+\item
+  A prime number \(p\in\bbN\) is divisible only by itself and 1.
+\item
+  We might attempt to brute force the answer by writing a software loop.
+\item
+  Can we prove this theorem by software?
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\vspace{-1em}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{INPUT n}
+\NormalTok{  i := 2}
+\NormalTok{  count := 0}
+\NormalTok{  WHILE i \textless{}= n}
+\NormalTok{    rem := n \% i}
+\NormalTok{    IF rem not equal to 0}
+\NormalTok{      i := i + 1}
+\NormalTok{      count := count + 1}
+\NormalTok{    END IF}
+\NormalTok{  END WHILE}
+\NormalTok{OUTPUT count}
+\end{Highlighting}
+\end{Shaded}
+\end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}{Learning outcomes}
-\protect\hypertarget{learning-outcomes}{}
+\begin{frame}{Software affords us insight}
+\protect\hypertarget{software-affords-us-insight}{}
+Let \(\pi(x)\) be the prime counting function defined to be the number
+of primes less than or equal to \(x\), for any \(x\in\bbR\). Can we
+intuit a good approximation of \(\pi(x)\)?
+
+\vspace{1em}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\vspace{1em}
+
+A different (but related) question: How far apart are the prime numbers?
+
+\vspace{1em}
+
+Define the \emph{density} of primes as \(\pi(x)/x\). This gives an idea
+of the distribution of primes up to \(x\). It would be interesting to
+map this out.
+
+\vspace{1em}
+
+\footnotesize
+
+Source code from \url{https://github.com/johnistan/ulam-spirals-R}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\vspace{-1em}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{figure/unnamed-chunk-2-1} \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Ulam's spiral}
+\protect\hypertarget{ulams-spiral}{}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item
+  Prominent diagonal, horizontal and vertical lines containing large
+  number of primes.
+\item
+  Not unsurprising, as these correspond to certain prime-generating
+  polynomials such as \(x^2 - x + 41\) (Euler's).
+\item
+  Nonetheless, connected to many unsolved areas of mathematics!
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Riemann Hypothesis
+  \item
+    Goldbach's conjecture
+  \item
+    Twin prime conjecture
+  \item
+    Legendre's conjecture
+  \end{itemize}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\vspace{-2em}
+
+\begin{center}\includegraphics[height=0.9\textheight]{figure/unnamed-chunk-3-1} \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Does the density converge?}
+\protect\hypertarget{does-the-density-converge}{}
+As \(x\to\infty\), the prime density \(\pi(x)/x\) diminishes at a slow
+rate. Reminiscent of an inverse logarithmic decrease!
+
+\vspace{1em}
+
+\includegraphics{figure/unnamed-chunk-4-1.pdf}
+\end{frame}
+
+\begin{frame}{The prime number theorem}
+\protect\hypertarget{the-prime-number-theorem}{}
+\begin{columns}[T]
+\begin{column}{0.49\textwidth}
+\begin{itemize}
+\item
+  The \emph{asymptotic} law of distribution of prime numbers states that
+  \[
+  \lim_{x\to\infty} \frac{\pi(x)/x}{1 / \log(x)} = \frac{\pi(x)}{x/\log(x)} = 1
+  \]
+\item
+  From this, we have \[
+  \pi(x) \sim \frac{x}{\log(x)}
+  \]
+\item
+  We now have an approximation for the prime counting function, which
+  improves as \(x\) increases. In particular,
+  \(\lim_{x\to\infty} x / \log (x) = \infty\).
+\end{itemize}
+\end{column}
+
+\begin{column}{0.49\textwidth}
+\includegraphics{figure/unnamed-chunk-5-1.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Work flow}
+\protect\hypertarget{work-flow}{}
+\usetikzlibrary{arrows}
+
+\begin{center}
+\huge
+\begin{tikzpicture}[->,node distance=6cm,thick,main node/.style={circle,draw}]
+
+  \node[] (1) {\color{navyblue}Mathematics};
+  \node[] (4) [right of=1] {\color{solidpink}\texttt{Software}};
+  
+
+  \path[]
+    (1.north) edge[bend left] node [above] {\textit{ideation}} (4.north)
+    (4.south) edge[bend left] node [below] {\textit{results}} (1.south);
+    
+\end{tikzpicture}
+\end{center}
+
+Use software as a tool to\ldots{}
+
+\begin{itemize}
+\item
+  Explore and visualise ideas
+\item
+  Confirm ideas numerically
+\item
+  Communicate results
+\end{itemize}
+\end{frame}
+
+\hypertarget{getting-started-1}{%
+\section{Getting started}\label{getting-started-1}}
+
+\begin{frame}{Software}
+\protect\hypertarget{software}{}
+\begin{enumerate}
+\item
+  MATLAB
+\item
+  RStudio
+\item
+  Git, github.com and GitHub Desktop
+\item
+  Overleaf.com
+\end{enumerate}
 \end{frame}
 
 
