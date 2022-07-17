@@ -152,6 +152,8 @@ Take note that this module is assessed wholly (100%) by coursework.
 
 ### Collaboration, sharing and code reuse
 
+<!-- Obtained from: http://sta323-sp22.github.io/ -->
+
 - All graded assignments must be your own individual work, *except* for the group assignments (these are expected to be collaborative in nature). **Do not share your code, otherwise**.
 
 - We are aware that the internet is a great resource. You may make use of any of these resources, but **you must explicitly cite where you obtained any code your directly use or use as inspiration in your solutions**.
