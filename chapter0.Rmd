@@ -14,8 +14,8 @@ output:
     keep_tex: true
     citation_package: biblatex
     pandoc_args: ["--lua-filter=/Library/Frameworks/R.framework/Versions/4.1/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua"]
-    # includes:
-    #   after_body: afterbody.txt
+    includes:
+      after_body: matlab_slides.tex
 toc: true
 toctitle: "Overview"
 banner: true
@@ -30,6 +30,8 @@ aspectratio: 169
 editor_options: 
   markdown: 
     wrap: 72
+header-includes:
+  - \graphicspath{{figure/}}
 ---
 
 ```{r setup, include = FALSE}
@@ -123,7 +125,7 @@ Contents
 
 Take note that this module is assessed wholly (100%) by coursework.
 
-\vspace{1em}
+\vspace{0.5em}
 
 *Formative assessment*
 
@@ -136,9 +138,40 @@ Take note that this module is assessed wholly (100%) by coursework.
 - **[30%]** 2 $\times$ mini group assignments
 - **[30%]** 1 $\times$ project assignment with written report
 
-\vspace{1em}
+\vspace{0.5em}
+\pause
 
-\textcolor{solidpink}{See the syllabus pdf file for further details.}
+::: {.block}
+#### A note on teams
+
+- You may self-sign up to form teams (max in a group is 4).
+- Peer evaluation after completion.
+- Everyone is expected to contribute **equal effort**.
+
+:::
+
+### Collaboration, sharing and code reuse
+
+- All graded assignments must be your own individual work, *except* for the group assignments (these are expected to be collaborative in nature). **Do not share your code, otherwise**.
+
+- We are aware that the internet is a great resource. You may make use of any of these resources, but **you must explicitly cite where you obtained any code your directly use or use as inspiration in your solutions**.
+
+- Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source.
+
+\pause
+
+::: {.alertblock latex="{Penalties for plagiarism}"}
+
+
+- A written, formal reprimand kept in Faculty records; and/or
+- Resubmission of assignment; and/or
+- Reduced assignment marks; and/or
+- Fail grade for assignment.
+
+:::
+
+
+<!-- \textcolor{solidpink}{See the syllabus pdf file for further details.} -->
 
 <!-- ### COVID-19 Information -->
 
@@ -157,7 +190,58 @@ Take note that this module is assessed wholly (100%) by coursework.
 <!-- - Lecturers to double mask and wear face shield -->
 <!-- - No holding room available; advise to return home immediately if unwell -->
 
-## Purpose of mathematical software
+### Schedule
+
+\footnotesize
+\centering
+
+\vspace{-1em}
+
+\begin{tabular}[t]{rlll}
+\toprule
+Week & Topic & Instructor & Assessment\\
+\midrule
+\hspace{1em}W01: 01/08 -- 07/08 & Introduction \& Getting Started & NHR \& HJ & \\
+\color{navyblue}
+\hspace{1em}W02: 08/08 -- 14/08 & \color{navyblue}\texttt{[MATLAB]} Basic operations &\color{navyblue} NHR & \\
+
+\color{navyblue}\hspace{1em}W03: 15/08 -- 21/08 & \color{navyblue}\texttt{[MATLAB]}\color{navyblue} Programming & NHR & \\
+
+\hspace{1em} &\color{solidpink} \texttt{[R]} Introduction to R and Rstudio &\color{solidpink} HJ & Quiz 1\\
+
+\hspace{1em}\multirow[t]{-2}{*}{\raggedleft\arraybackslash\color{solidpink} W04: 22/08 -- 28/08} & \texttt{[Git]} Git and GitHub & HJ & \\
+
+\color{navyblue}\hspace{1em}W05: 29/08 -- 04/09 & \color{navyblue}\texttt{[MATLAB]} Numerical techniques & \color{navyblue}NHR & Quiz 2\\
+
+\color{navyblue}\hspace{1em}W06: 05/09 -- 11/09 & \color{navyblue}\texttt{[MATLAB]} Root-finding & \color{navyblue}NHR & Individual 1\\
+
+\color{solidpink}\hspace{1em}W07: 12/09 -- 18/09 & \color{solidpink}\texttt{[R]} Logic and types & \color{solidpink}HJ & \\
+
+\addlinespace[0.4em]
+\color{gray}\hspace{1em}19/09 -- 25/09 & \color{gray}Mid-semester Break &  & \\
+\addlinespace[0.4em]
+
+
+\color{navyblue}\hspace{1em}W08: 26/09 -- 02/10 &\color{navyblue} \texttt{[MATLAB]} Peer review / presentations & \color{navyblue}NHR & Group 1\\
+
+\color{solidpink}\hspace{1em}W09: 03/10 -- 09/10 &\color{solidpink} \texttt{[R]} Matrices and data frames & \color{solidpink}HJ & Quiz 3\\
+
+\color{solidpink}\hspace{1em}W10: 10/10 -- 16/10 &\color{solidpink} \texttt{[R]} The tidyverse &\color{solidpink} HJ & \\
+
+\color{solidpink}\hspace{1em}W11: 17/10 -- 23/10 & \color{solidpink}\texttt{[R]} Visualisations using ggplot &\color{solidpink} HJ & Individual 2\\
+
+\color{myrtlegreen}\hspace{1em}W12: 24/10 -- 30/10 & \color{myrtlegreen}\texttt{[LaTeX]} Typesetting reports & \color{myrtlegreen}HJ & \\
+
+\color{myrtlegreen}\hspace{1em}W13: 31/10 -- 06/11 & \color{myrtlegreen}\texttt{[LaTeX]} \color{myrtlegreen}Beyond reports &\color{myrtlegreen} NHR & Quiz 4\\
+
+\color{solidpink}\hspace{1em}W14: 07/11 -- 13/11 & \color{solidpink}\texttt{[R]} Peer review & \color{solidpink}HJ & Group 2\\
+\bottomrule
+\end{tabular}
+
+
+
+
+# Purpose of mathematical software
 
 > Software is essential for modelling, analysing and calculating numeric, symbolic, or geometric data.
 
@@ -183,12 +267,16 @@ While mathematical software produces useful solutions, they very often do not ex
 
 ### How many primes are there? {.t}
 
+\pause
 
 ::: {.theorem name="Euclid's Theorem"}
 There are infinitely many primes.
 :::
 
+
 ::: {.columns}
+
+\pause
 
 ::: {.column width=48%}
 - A prime number $p\in\bbN$ is divisible only by itself and 1.
@@ -201,6 +289,7 @@ There are infinitely many primes.
 ::: {.column width=48%}
 
 \vspace{-1em}
+\pause
 
 ```Markdown
 INPUT n
@@ -225,6 +314,7 @@ OUTPUT count
 Let $\pi(x)$ be the prime counting function defined to be the number of primes less than or equal to $x$, for any $x\in\bbR$. Can we intuit a good approximation of $\pi(x)$?
 
 \vspace{1em}
+\pause
 
 ::: {.columns}
 
@@ -235,6 +325,7 @@ Let $\pi(x)$ be the prime counting function defined to be the number of primes l
 A different (but related) question: How far apart are the prime numbers?
 
 \vspace{1em}
+\pause
 
 Define the *density* of primes as $\pi(x)/x$. 
 This gives an idea of the distribution of primes up to $x$.
@@ -523,6 +614,8 @@ as_tibble(dat) %>%
 $$
 \lim_{x\to\infty} \frac{\pi(x)/x}{1 / \log(x)} = \frac{\pi(x)}{x/\log(x)} = 1
 $$
+\pause
+
 - From this, we have
 $$
 \pi(x) \sim \frac{x}{\log(x)}
@@ -592,13 +685,28 @@ Use software as a tool to...
 
 # Getting started
 
-### Software 
+## Software 
 
-1. MATLAB
 
-2. RStudio
+1. MATLAB--more details in the upcoming slides.
 
-3. Git, github.com and GitHub Desktop
+2. RStudio Desktop
+   
+   - RStudio is installed on campus computers.
+   - It is free to install on your personal computers--https://www.rstudio.com/products/rstudio/download/
+   - You may also need to install the `R` language too, depending on your system. Do a Google search for 'R Windows download' or similar.
+
+3. Git, github.com and GitHub Desktop 
+
+   - Please sign up for an account at github.com/signup using your UBD e-mail.
+   - You will be invited to join the course organization (`sm2302`) in due course.
+   - Assignments will be distributed and collected via GitHub.
 
 4. Overleaf.com
+
+   - Please sign up for an account at https://www.overleaf.com/register
+
+::: {.alertblock latex="{Attention}"}
+Check Canvas for detailed instructions regarding software installation and sign up procedures.
+:::
 

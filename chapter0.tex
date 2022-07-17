@@ -404,6 +404,7 @@
 
 
 
+\graphicspath{{figure/}}
 
 \begin{document}
 
@@ -522,7 +523,7 @@ Contents
 \protect\hypertarget{assessment}{}
 Take note that this module is assessed wholly (100\%) by coursework.
 
-\vspace{1em}
+\vspace{0.5em}
 
 \emph{Formative assessment}
 
@@ -547,13 +548,110 @@ Take note that this module is assessed wholly (100\%) by coursework.
   report
 \end{itemize}
 
-\vspace{1em}
+\vspace{0.5em}
+\pause
 
-\textcolor{solidpink}{See the syllabus pdf file for further details.}
+\begin{block}{A note on teams}
+\protect\hypertarget{a-note-on-teams}{}
+\begin{itemize}
+\tightlist
+\item
+  You may self-sign up to form teams (max in a group is 4).
+\item
+  Peer evaluation after completion.
+\item
+  Everyone is expected to contribute \textbf{equal effort}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Collaboration, sharing and code reuse}
+\protect\hypertarget{collaboration-sharing-and-code-reuse}{}
+\begin{itemize}
+\item
+  All graded assignments must be your own individual work, \emph{except}
+  for the group assignments (these are expected to be collaborative in
+  nature). \textbf{Do not share your code, otherwise}.
+\item
+  We are aware that the internet is a great resource. You may make use
+  of any of these resources, but \textbf{you must explicitly cite where
+  you obtained any code your directly use or use as inspiration in your
+  solutions}.
+\item
+  Any recycled code that is discovered and is not explicitly cited will
+  be treated as plagiarism, regardless of source.
+\end{itemize}
+
+\pause
+
+\begin{alertblock}{Penalties for plagiarism}
+
+\begin{itemize}
+\tightlist
+\item
+  A written, formal reprimand kept in Faculty records; and/or
+\item
+  Resubmission of assignment; and/or
+\item
+  Reduced assignment marks; and/or
+\item
+  Fail grade for assignment.
+\end{itemize}
+
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Schedule}
+\protect\hypertarget{schedule}{}
+\footnotesize
+\centering
+
+\vspace{-1em}
+
+\begin{tabular}[t]{rlll}
+\toprule
+Week & Topic & Instructor & Assessment\\
+\midrule
+\hspace{1em}W01: 01/08 -- 07/08 & Introduction \& Getting Started & NHR \& HJ & \\
+\color{navyblue}
+\hspace{1em}W02: 08/08 -- 14/08 & \color{navyblue}\texttt{[MATLAB]} Basic operations &\color{navyblue} NHR & \\
+
+\color{navyblue}\hspace{1em}W03: 15/08 -- 21/08 & \color{navyblue}\texttt{[MATLAB]}\color{navyblue} Programming & NHR & \\
+
+\hspace{1em} &\color{solidpink} \texttt{[R]} Introduction to R and Rstudio &\color{solidpink} HJ & Quiz 1\\
+
+\hspace{1em}\multirow[t]{-2}{*}{\raggedleft\arraybackslash\color{solidpink} W04: 22/08 -- 28/08} & \texttt{[Git]} Git and GitHub & HJ & \\
+
+\color{navyblue}\hspace{1em}W05: 29/08 -- 04/09 & \color{navyblue}\texttt{[MATLAB]} Numerical techniques & \color{navyblue}NHR & Quiz 2\\
+
+\color{navyblue}\hspace{1em}W06: 05/09 -- 11/09 & \color{navyblue}\texttt{[MATLAB]} Root-finding & \color{navyblue}NHR & Individual 1\\
+
+\color{solidpink}\hspace{1em}W07: 12/09 -- 18/09 & \color{solidpink}\texttt{[R]} Logic and types & \color{solidpink}HJ & \\
+
+\addlinespace[0.4em]
+\color{gray}\hspace{1em}19/09 -- 25/09 & \color{gray}Mid-semester Break &  & \\
+\addlinespace[0.4em]
+
+
+\color{navyblue}\hspace{1em}W08: 26/09 -- 02/10 &\color{navyblue} \texttt{[MATLAB]} Peer review / presentations & \color{navyblue}NHR & Group 1\\
+
+\color{solidpink}\hspace{1em}W09: 03/10 -- 09/10 &\color{solidpink} \texttt{[R]} Matrices and data frames & \color{solidpink}HJ & Quiz 3\\
+
+\color{solidpink}\hspace{1em}W10: 10/10 -- 16/10 &\color{solidpink} \texttt{[R]} The tidyverse &\color{solidpink} HJ & \\
+
+\color{solidpink}\hspace{1em}W11: 17/10 -- 23/10 & \color{solidpink}\texttt{[R]} Visualisations using ggplot &\color{solidpink} HJ & Individual 2\\
+
+\color{myrtlegreen}\hspace{1em}W12: 24/10 -- 30/10 & \color{myrtlegreen}\texttt{[LaTeX]} Typesetting reports & \color{myrtlegreen}HJ & \\
+
+\color{myrtlegreen}\hspace{1em}W13: 31/10 -- 06/11 & \color{myrtlegreen}\texttt{[LaTeX]} \color{myrtlegreen}Beyond reports &\color{myrtlegreen} NHR & Quiz 4\\
+
+\color{solidpink}\hspace{1em}W14: 07/11 -- 13/11 & \color{solidpink}\texttt{[R]} Peer review & \color{solidpink}HJ & Group 2\\
+\bottomrule
+\end{tabular}
 \end{frame}
 
 \hypertarget{purpose-of-mathematical-software}{%
-\subsection{Purpose of mathematical
+\section{Purpose of mathematical
 software}\label{purpose-of-mathematical-software}}
 
 \begin{frame}{Purpose of mathematical software}
@@ -591,11 +689,15 @@ do not explain \underline{why} the solutions are what they are.
 
 \begin{frame}[fragile,t]{How many primes are there?}
 \protect\hypertarget{how-many-primes-are-there}{}
+\pause
+
 \begin{theorem}[Euclid's Theorem]
 There are infinitely many primes.
 \end{theorem}
 
 \begin{columns}[T]
+\pause
+
 \begin{column}{0.48\textwidth}
 \begin{itemize}
 \item
@@ -609,6 +711,7 @@ There are infinitely many primes.
 
 \begin{column}{0.48\textwidth}
 \vspace{-1em}
+\pause
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -636,6 +739,7 @@ of primes less than or equal to \(x\), for any \(x\in\bbR\). Can we
 intuit a good approximation of \(\pi(x)\)?
 
 \vspace{1em}
+\pause
 
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
@@ -644,6 +748,7 @@ intuit a good approximation of \(\pi(x)\)?
 A different (but related) question: How far apart are the prime numbers?
 
 \vspace{1em}
+\pause
 
 Define the \emph{density} of primes as \(\pi(x)/x\). This gives an idea
 of the distribution of primes up to \(x\). It would be interesting to
@@ -719,7 +824,7 @@ rate. Reminiscent of an inverse logarithmic decrease!
   The \emph{asymptotic} law of distribution of prime numbers states that
   \[
   \lim_{x\to\infty} \frac{\pi(x)/x}{1 / \log(x)} = \frac{\pi(x)}{x/\log(x)} = 1
-  \]
+  \] \pause
 \item
   From this, we have \[
   \pi(x) \sim \frac{x}{\log(x)}
@@ -771,21 +876,137 @@ Use software as a tool to\ldots{}
 \hypertarget{getting-started-1}{%
 \section{Getting started}\label{getting-started-1}}
 
-\begin{frame}{Software}
-\protect\hypertarget{software}{}
+\hypertarget{software}{%
+\subsection{Software}\label{software}}
+
+\begin{frame}[fragile]{Software}
 \begin{enumerate}
 \item
-  MATLAB
+  MATLAB--more details in the upcoming slides.
 \item
-  RStudio
+  RStudio Desktop
+
+  \begin{itemize}
+  \tightlist
+  \item
+    RStudio is installed on campus computers.
+  \item
+    It is free to install on your personal
+    computers--\url{https://www.rstudio.com/products/rstudio/download/}
+  \item
+    You may also need to install the \texttt{R} language too, depending
+    on your system. Do a Google search for `R Windows download' or
+    similar.
+  \end{itemize}
 \item
   Git, github.com and GitHub Desktop
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Please sign up for an account at github.com/signup using your UBD
+    e-mail.
+  \item
+    You will be invited to join the course organization
+    (\texttt{sm2302}) in due course.
+  \item
+    Assignments will be distributed and collected via GitHub.
+  \end{itemize}
 \item
   Overleaf.com
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Please sign up for an account at
+    \url{https://www.overleaf.com/register}
+  \end{itemize}
 \end{enumerate}
+
+\begin{alertblock}{Attention}
+Check Canvas for detailed instructions regarding software installation
+and sign up procedures.
+
+\end{alertblock}
 \end{frame}
 
 
+
+\renewcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}} 
+\newcommand{\mc}[1]{\mathcal{#1}} 
+\newcommand{\mbb}[1]{\mathbb{#1}} 
+\newcommand{\txt}[1]{\texttt{#1}} 
+\newcommand{\pdiff}[3]{ \if 1#1 
+	\frac{\partial #2}{\partial #3} \else \frac{\partial^{#1} #2}{\partial 
+		#3^{#1}}\fi}
+\newcommand{\ppdiff}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\sdiff}[3]{ \if 1#1 \frac{d #2}{d #3} \else \frac{d^{#1} #2}{d 
+		#3^{#1}}\fi}
+\newcommand{\e}{\mbox{e}}
+\newcommand{\rvec}[1]{\overrightarrow{#1}}
+\newcommand{\uvec}[3]{#1\,\mb{i}~ #2\,\mb{j}~ #3\,\mb{k}}
+
+\subsection{MATLAB}
+\begin{frame}{\txt{MATLAB}}
+\begin{itemize}
+	\item \txt{MATLAB} is a high-level language and interactive environment for numerical computation,
+	visualization and programming.
+	\begin{itemize}
+		\item Analyze data
+		\item Develop algorithms
+		\item Create models and applications
+	\end{itemize}
+	\item We will reinforce some calculus concepts and its applications using \txt{MATLAB}, such as
+	\begin{itemize}
+		\item Numerical differentiation
+		\item Numerical Integration
+		\item Root-finding methods
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software}
+\txt{MATLAB} is installed in the campus computer labs. 
+However, if you wish to work from home or on your laptop, you can either
+\begin{enumerate}
+	\item use \txt{MATLAB} Online on your web browser; or
+	\item install \txt{MATLAB} on your personal computer. 
+\end{enumerate}
+
+\begin{alertblock}{MATLAB Campus-wide suite}
+To install or use \txt{MATLAB} on your web browser, you need to create a Mathworks
+account using your UBD e-mail. You can access the UBD campus-wide suite using your mathworks account.\\
+Please refer to the \txt{MATLAB} individual CWL installation guide document.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{MATLAB Online}
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{matlab_online}
+\end{center}
+\url{https://matlab.mathworks.com}
+\end{frame}
+
+
+
+\begin{frame}{MATLAB Graphical Interface}
+\begin{columns}
+\begin{column}[T]{0.35\textwidth}
+\begin{itemize}
+	\item Command window
+	\item Workspace
+	\item Current folder
+	\item Command history
+	\item Editor
+	\end{itemize}
+\end{column}
+\begin{column}[T]{0.75\textwidth}
+	\includegraphics[width=0.85\textwidth]{initial_matlab}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 
 \end{document}		
