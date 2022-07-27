@@ -1,0 +1,134 @@
+---
+title: 'Getting started: Installation & Signups'
+author: "SM-2302 Software for Mathematicians"
+date: '`r Sys.Date()`'
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 
+
+In this course, we will be making use of four main software:
+
+1. MATLAB
+2. RStudio Desktop
+3. Git & GitHub (Desktop & online)
+4. Overleaf
+
+## MATLAB
+
+## RStudio
+
+You may use RStudio in one of three ways listed below.
+
+### UBD Computers
+
+If you are using any of UBD's computers, then RStudio should already be installed. 
+Locate the RStudio app by scrolling through the start menu.
+Alternatively, type `RStudio` in the Windows Run prompt.
+
+### Local RStudio
+
+By local, we mean that you are using your own laptop or computer.
+You need to ensure that you have done the following:
+
+- Install the latest version of R (4.2.0 as of 2022-04-22)
+- Install the latest version of RStudio Desktop (2022.07.0+548 as of 2022-07-17)
+- Install the list of recommended R packages from CRAN
+
+Note that you do need to install two things here: R and RStudio Desktop.
+The difference is that R is the actual programming language, so downloading and installing the base distribution and packages allows R to be run on your computer.
+This can be downloaded from these links: [Windows](https://cran.r-project.org/bin/windows/base/) and [macOS](https://cran.r-project.org/bin/macosx/).
+To verify that R has been installed, launch the Command Prompt (Windows) or Terminal (macOS) and type `R --version`.
+
+The RStudio Desktop is an Integrated Development Environment (IDE) that all around just makes life a little bit easier for R users.
+Indeed, you do not have to use RStudio--you can either run R from the command line or its dedicated R application, but I do not recommend it.
+There are several types of RStudio IDEs, and the one we will be working with is RStudio Desktop (free version).
+Obtain the installer from [here](https://www.rstudio.com/products/rstudio/download/).
+Once this has been installed, locate the app and launch it to verify correct installation.
+
+Once you have R up and running, go ahead and copy and paste the following command in the R Console to install the recommended packages for this course.
+
+```{r eval = FALSE}
+install.packages(c("tidyverse", "palmerpenguins", "lubridate", "rmarkdown", "tinytex"))
+```
+
+Sometimes, installing a package requires you to have what is known as a working "development environment".
+For Windows, this means you should install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
+For macOS, simply install Xcode from the Mac App Store.
+This should give you the prerequisites to install some packages from source (rather than from binaries).
+
+### RStudio Cloud
+
+This is another option, if you prefer working in the cloud.
+Sign up for an account at https://rstudio.cloud/plans/free and you can basically use RStudio from a web browser on pretty much any device.
+
+The downside to this is the limitations of the free tier, and mainly that is the 25 project hours per month quota.
+Roughly speaking, this means you can only open or run projects in your workspace for a little over 6 hours per week.
+Maybe that's enough, maybe it isn't.
+
+*TIP: You can log in with your GitHub credentials, so you don't actually have to sign up for an account if you prefer not to.*
+
+## Git & GitHub
+
+R is to Git what RStudio is to GitHub.
+Meaning, there are two things needed here: a working git installation, and a GitHub account (and subsequently the Desktop app).
+Luckily, if you are using macOS, git comes preinstalled, so you need not do anything. 
+Especially if you tried installing Xcode from the above step, then you should be good to go.
+For Windows, you need to download and install from [here](https://git-scm.com/download/win).
+Apparently, the 64-bit version is recommended when possible.
+
+Next, sign up for a GitHub account from GitHub.com.
+You should use your UBD e-mail to sign up for GitHub, so that you can be eligible for student benefits.
+To apply, click on 'Get student benefits' from this link: https://education.github.com/benefits/offers.
+This step is not really necessary for this course, but moving forward you might want these benefits--in particular it will allow you to host static websites for free (GitHub pages).
+
+**IMPORTANT** Some advice about selecting your account names (particularly for GitHub)^[Taken from sta323 course at Duke]: 
+
+- Incorporate your actual name! People like to know who they're dealing with. Also makes your usename easier for people to guess or remember.
+
+- Reuse your username from other contexts (e.g. social media platforms).
+
+- Pick a username you will be comfortable revealing to your future boss.
+
+- Shorter is better than longer, but be unique as possible.
+
+- Make it timeless. Avoid highlighting your current university, employer, or place of residence.
+
+At some point, you will be invited to the `sm2302` GitHub organisation.
+This is where all our code repositories will live.
+You can browse through some that we have created and you can explore GitHub features such as commits, issues, and GitHub Pages.
+Assignments will also be distributed using GitHub (Classroom)--although there will still be a Canvas crossover so as to keep your academic activities within the Learning Management System (LMS).
+
+## Overleaf
+
+We have decided that the path of least resistance to get up and running and typesetting LaTeX documents is by using the online editor called Overleaf.
+You will have to sign up for an account on Overleaf.com, and to use Overleaf it obviously requires an internet connection.
+
+For more advanced users, LaTeX can be installed on your local computers.
+This requires installing (and maintaining!) a TeX distribution, and selecting an IDE to work with.
+Now, going down this route is a little bit messy and things might not always work.
+On the other hand, Overleaf has so many benefits for the new user that it allows us instructors to focus on actually teaching you to typeset rather than spending time debugging.
+A favourite of ours is the very forgiving way that it handles errors, which can literally drive you crazy otherwise.
+
+## General advice
+
+- If you are using campus computers, then ensure that you are logged in with your user ID and password. Dedicate a folder where you will store all your work files, which should persist from PC to PC with your login credentials.
+
+- Using your own device? It is recommended to work with either a laptop or desktop computer, and not a tablet. Generally speaking, tablets do not provide sufficient compute power and you may find the file system a bit clunkier to manage. 
+
+- Practice safe and secure logins. Keep your passwords secure and do not recycle them, especially given the multiple logins you need to create. I would recommend using a password manager, not just for this course, but beyond this. Also, two-factor authentications are a good idea too, so enabling that is highly recommended.
+
+
+
+
+
+
+
+
+
+
