@@ -88,8 +88,8 @@ huda.ramli@ubd.edu.bn
 - \textcolor{solidpink}{\textbf{IMPORTANT: Read the syllabus.}}
 
 - Weekly contact hours
-    - \underline{Lectures}: 2 hours in computer lab on Thursdays 7:50 AM
-    - \underline{Tutorials}: 2 hours practice lab on Saturdays 2:10 PM
+    - \underline{Lectures}: 2 hours in ICTC Lab 7 on Thursdays 2:10 PM
+    - \underline{Tutorials}: 2 hours in ICTC Lab 7 on Saturdays 2:10 PM
 
 - Be aware of schedule and important deadlines.
 
@@ -215,7 +215,7 @@ Week & Topic & Instructor & Assessment\\
 
 \color{navyblue}\hspace{1em}W05: 29/08 -- 04/09 & \color{navyblue}\texttt{[MATLAB]} Numerical techniques & \color{navyblue}NHR & Quiz 2\\
 
-\color{navyblue}\hspace{1em}W06: 05/09 -- 11/09 & \color{navyblue}\texttt{[MATLAB]} Root-finding & \color{navyblue}NHR & Individual 1\\
+\color{navyblue}\hspace{1em}W06: 05/09 -- 11/09 & \color{navyblue}\texttt{[MATLAB]} Root-finding & \color{navyblue}NHR & Individual 1 \\
 
 \color{solidpink}\hspace{1em}W07: 12/09 -- 18/09 & \color{solidpink}\texttt{[R]} Logic and types & \color{solidpink}HJ & \\
 
@@ -656,7 +656,7 @@ as_tibble(dat) %>%
 
 :::
 
-### Work flow
+### Using software
 
 ```{=latex}
 \usetikzlibrary{arrows}
@@ -685,9 +685,47 @@ Use software as a tool to...
 
 - Communicate results
 
+### Beyond this course
+
+Static websites served on GitHub; 3-D plots and animation; Plotting GIS shape files and maps; Reproducible research (`knitr`); Text processing and analysis; Web and social media scraping; Creating `R` packages; Web APIs; Parallel computing; Optimisation; Mathematical and statistical modelling
+
+\vspace{1em}
+
+
+```{r, out.width = "31%"}
+knitr::include_graphics("figure/beyond1.png")
+knitr::include_graphics("figure/beyond2.png")
+knitr::include_graphics("figure/beyond3.png")
+```
+
+
+<!-- \begin{figure}[htbp] -->
+<!-- \centering -->
+<!-- \includegraphics[width=.35\textwidth]{figure/beyond1.png} -->
+<!-- \caption{Static websites served on GitHub} -->
+<!-- \end{figure} -->
+
 # Getting started
 
-## Software 
+## Instructions
+
+::: {.alertblock latex="{IMPORTANT}"}
+Check Canvas for detailed instructions regarding software installation and sign up procedures.
+:::
+
+Important points:
+
+- Use UBD e-mail in most cases to obtain Education Benefits
+
+- Pick a suitable username (one that you won't be embarassed to use in a few years time!)
+
+- Practice safe and secure passwords
+
+- When using Lab PCs, best to create a personal folder and keep all your work files in there. 
+
+- Recommended to use USB drives (make sure they're clean!) or some cloud service (Dropbox, Sharepoint, Google Drive, etc.)
+
+## Software overview 
 
 
 1. MATLAB--more details in the upcoming slides.
@@ -708,7 +746,5 @@ Use software as a tool to...
 
    - Please sign up for an account at https://www.overleaf.com/register
 
-::: {.alertblock latex="{Attention}"}
-Check Canvas for detailed instructions regarding software installation and sign up procedures.
-:::
+
 

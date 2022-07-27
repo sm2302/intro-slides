@@ -3,3 +3,5 @@
 chapter0.log
 _cache/*
 .texpadtmp/*
+.RData
+.Rhistory
