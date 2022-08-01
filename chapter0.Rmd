@@ -13,7 +13,7 @@ output:
     slide_level: 3
     keep_tex: true
     citation_package: biblatex
-    pandoc_args: ["--lua-filter=/Library/Frameworks/R.framework/Versions/4.1/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua"]
+    pandoc_args: ["--lua-filter=/Library/Frameworks/R.framework/Versions/4.2/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua"]
     includes:
       after_body: matlab_slides.tex
 toc: true
@@ -341,7 +341,7 @@ Source code from https://github.com/johnistan/ulam-spirals-R
 
 ::: {.column width=48%}
 
-\vspace{-1em}
+\vspace{-1.5em}
 
 ```{r include = FALSE}
 Ulam.Spiral<-function(N){
@@ -523,7 +523,7 @@ p<-Prime.Marker(5, spiral)
 ```
 
 
-```{r, fig.align = "center", out.width = "80%"}
+```{r, fig.align = "center", fig.width = 4, out.width = "85%"}
 N <- 5
 dat <- Prime.Marker(N, Ulam.Spiral(N))
 ggplot(dat, aes(x, y, fill = p, label = n)) +
@@ -564,9 +564,9 @@ ggplot(dat, aes(x, y, fill = p, label = n)) +
 
 ::: {.column width=60%}
 
-\vspace{-2em}
+\vspace{-3em}
 
-```{r, fig.align = "center", out.height = "90%"}
+```{r, fig.align = "center", fig.width = 4, out.width = "90%"}
 N <- 501
 dat <- Prime.Marker(N, Ulam.Spiral(N))
 ggplot(dat, aes(x, y, fill = p, label = n)) +
