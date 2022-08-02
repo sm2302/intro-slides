@@ -13,7 +13,7 @@ output:
     slide_level: 3
     keep_tex: true
     citation_package: biblatex
-    pandoc_args: ["--lua-filter=/Library/Frameworks/R.framework/Versions/4.2/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua"]
+    pandoc_args: ["--lua-filter=/Library/Frameworks/R.framework/Versions/4.1/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua"]
     includes:
       after_body: matlab_slides.tex
 toc: true
@@ -88,7 +88,7 @@ huda.ramli@ubd.edu.bn
 - \textcolor{solidpink}{\textbf{IMPORTANT: Read the syllabus.}}
 
 - Weekly contact hours
-    - \underline{Lectures}: 2 hours in ICTC Lab 7 on Thursdays 2:10 PM
+    - \underline{Lectures}: 2 hours in ICTC Lab 7 on Tuesdays 2:10 PM
     - \underline{Tutorials}: 2 hours in ICTC Lab 7 on Saturdays 2:10 PM
 
 - Be aware of schedule and important deadlines.
