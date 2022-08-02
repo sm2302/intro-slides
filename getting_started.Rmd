@@ -21,6 +21,8 @@ In this course, we will be making use of four main software:
 
 ## MATLAB
 
+Instructions explained in class. 
+
 ## RStudio
 
 You may use RStudio in one of three ways listed below.
@@ -36,7 +38,7 @@ Alternatively, type `RStudio` in the Windows Run prompt.
 By local, we mean that you are using your own laptop or computer.
 You need to ensure that you have done the following:
 
-- Install the latest version of R (4.2.0 as of 2022-04-22)
+- Install the latest version of R (4.2.1 as of 2022-06-23)
 - Install the latest version of RStudio Desktop (2022.07.0+548 as of 2022-07-17)
 - Install the list of recommended R packages from CRAN
 
@@ -117,7 +119,7 @@ A favourite of ours is the very forgiving way that it handles errors, which can 
 
 ## General advice
 
-- If you are using campus computers, then ensure that you are logged in with your user ID and password. Dedicate a folder where you will store all your work files, which should persist from PC to PC with your login credentials.
+- If you are using campus computers, then dedicate a folder where you will store all your work files. Note that these files are retained on the PC you are currently using (since it does not have individual logins). Perhaps a USB drive or some cloud storage would be useful as well. 
 
 - Using your own device? It is recommended to work with either a laptop or desktop computer, and not a tablet. Generally speaking, tablets do not provide sufficient compute power and you may find the file system a bit clunkier to manage. 
 
